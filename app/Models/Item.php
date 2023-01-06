@@ -28,13 +28,13 @@ class Item extends Model
     public function scopeName($query,$value)
     {
         if ($value!= '')
-            return $query->where('name','like', '%'.$value.'%');
+            return $query->where('name','ilike', '%'.$value.'%');
     }
 
     public function scopeDescription($query,$value)
     {
         if ($value!= '')
-            return $query->where('description','like', '%'.$value.'%');
+            return $query->where('description','ilike', '%'.$value.'%');
     }
 
     public function scopeStatus($query,$value)

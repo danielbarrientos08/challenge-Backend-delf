@@ -11,14 +11,14 @@ class ItemService
 
     public function listItems(Request $request): Object {
 
-        $categoryName = $request->input('category_name','');
+        $categoryName = $request->category_name;
 
         $items = Item::status($request->status)
                     ->name($request->name)
                     ->description($request->description)
                     ->with('categories:id,name')
                     ->whereHas('categories', function(Builder $query) use ($categoryName){
-                        $query->where('name','like','%'.$categoryName.'%');
+                        $query->where('name','ilike','%'.$categoryName.'%');
                     })->paginate(5);
 
         return $items;

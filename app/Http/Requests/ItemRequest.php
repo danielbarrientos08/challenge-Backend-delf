@@ -25,9 +25,9 @@ class ItemRequest extends FormRequest
     {
         return [
             'status'        => 'bail|in:0,1',
-            'name'          => 'bail|max:20',
+            'name'          => 'bail|max:100',
             'description'   => 'bail|max:100',
-            'category_name' => 'bail|max:40'
+            'category_name' => 'bail|max:30'
         ];
     }
 }
